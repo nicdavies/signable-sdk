@@ -1,0 +1,78 @@
+{
+  "misc": {
+    "404": {
+      "http": 404,
+      "error": 10003,
+      "message": "The URL you are looking for does not exist"
+    },
+
+    "default": {
+      "http": 400,
+      "message": "Unknown error"
+    }
+  },
+
+  "500": {},
+
+  "request": {
+    "1001": {
+      "http": 400,
+      "error": 1001,
+      "message": "Invalid HTTP Method. Please use either GET, POST, PUT or DELETE"
+    },
+    "1002": {
+      "http": 400,
+      "error": 1002,
+      "message": ""
+    },
+    "1003": {
+      "http": 400,
+      "error": 1003,
+      "message": ""
+    },
+    "1004": {
+      "http": 400,
+      "error": 1004,
+      "message": ""
+    },
+    "1005": {
+      "http": 400,
+      "error": 1005,
+      "message": ""
+    },
+    "1006": {
+      "http": 400,
+      "error": 1006,
+      "message": ""
+    },
+    "1007": {
+      "http": 400,
+      "error": 1007,
+      "message": ""
+    },
+    "1008": {
+      "http": 400,
+      "error": 1008,
+      "message": ""
+    },
+    "1009": {
+      "http": 400,
+      "error": 1009,
+      "message": ""
+    }
+  },
+
+  "contact": {},
+
+  "user": {},
+
+  "template": {},
+
+  "envelopes": {},
+
+  "webhooks": {},
+
+  "teams": {},
+
+  "branding": {}
+}

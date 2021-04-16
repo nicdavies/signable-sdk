@@ -38,6 +38,7 @@ Flags: `--without-webhooks`
 - [ ] Build up `webhook` endpoints
 - [ ] Build Webhook triggers
 - [ ] Build output logging to CLI (similar to NGROK cli)
+- [ ] Map out *all* error codes in `errors.json`
 
 ## Dreams
 - [ ] Parameterised JSON response stubs, that parse and replace
