@@ -1,0 +1,84 @@
+{
+  "list_branding_options": {
+    "success": {
+      "http": 200,
+      "branding_logo": "http://assets.signable.co.uk/company-logo/1234.jpg",
+      "branding_colour": "#FF0000"
+    }
+  },
+  "list_branding_emails": {
+    "success": {
+      "http": 200,
+      "branding_emails": [
+        {
+          "branding_email_type": "email-cancelled",
+          "branding_email_subject": "{company name} has cancelled a document",
+          "branding_email_content": "<table style=\"width:600px\"><tbody><tr><td><table><tbody><tr><td><a href=\"https://www.signable.co.uk\"><img alt=\"Signable\" src=\"https://s3-eu-west-1.amazonaws.com/assets.signable.co.uk/company-logo/20500.jpg?1395222166\" style=\"height:92px; width:300px\" /></a></td></tr><tr><td><h1>A document previously sent to you has been cancelled</h1><p>{company name} has cancelled the {contract title} document.</p><p>Kind regards, <a href=\"https://www.signable.co.uk\">Signable</a></p></td></tr></tbody></table></td></tr></tbody></table>",
+          "branding_email_content_plain": "A document previously sent to you has been cancelled{company name} has cancelled the {contract title} document.Kind regards,Signablehttps://www.signable.co.uk",
+          "branding_email_updated": "2014-03-19T09:43:09+0000"
+        },
+        {
+          "branding_email_type": "email-rejected",
+          "branding_email_subject": "{contract title} document cancelled",
+          "branding_email_content": "<table style=\"width:600px\"><tbody><tr><td><table><tbody><tr><td><a href=\"https://www.signable.co.uk\"><img alt=\"Signable\" src=\"https://s3-eu-west-1.amazonaws.com/assets.signable.co.uk/company-logo/20500.jpg?1395222166\" /></a></td></tr><tr><td><h1>A document you signed has been rejected</h1><p>As you have already signed {contract title} we are informing you that a subsequent party has rejected the document. As such this document is no longer legally binding.</p><p>Kind regards, <a href=\"https://www.signable.co.uk\">Signable</a></p></td></tr></tbody></table></td></tr></tbody></table>",
+          "branding_email_content_plain": "A document you signed has been rejectedAs you have already signed {contract title} we are informing you that a subsequent party has rejected the document. As such this document is no longer legally binding.Kind regards,Signablehttps://www.signable.co.uk",
+          "branding_email_updated": "2014-03-19T09:43:16+0000"
+        },
+        {
+          "branding_email_type": "email-reminder",
+          "branding_email_subject": "{company name} has sent you a document to sign",
+          "branding_email_content": "<table style=\"width:600px\"><tbody><tr><td><table><tbody><tr><td><a href=\"https://www.signable.co.uk\"><img alt=\"Signable\" src=\"https://s3-eu-west-1.amazonaws.com/assets.signable.co.uk/company-logo/20500.jpg?1395222166\" style=\"height:92px; width:300px\" /></a></td></tr><tr><td><h1>{client name}, You Have Been Sent A Document To Sign</h1><p>{company name} has sent you the document {contract title} to sign online. {user name}</p><p>We have attached a copy of the document in this email, so please take the time to open and read the document carefully before proceeding. Once ready, please click on the link below which will take you to our secure document signing page:</p><table style=\"width:100%\"><tbody><tr><td><p><a href=\"{contract url}\">Please click here to sign the {contract title}</a></p></td></tr></tbody></table><p>Kind regards, <a href=\"https://www.signable.co.uk\">Signable</a></p><p>Important: Signing a document online via <a href=\"https://www.signable.co.uk\">Signable</a> is legally binding.</p></td></tr></tbody></table></td></tr></tbody></table><p><img alt=\"\" src=\"{acknowledge url}\" /></p>",
+          "branding_email_content_plain": "{client name}, You have been sent a document to sign{company name} has sent you the document {contract title} to sign online. We have attached a copy to this email. To sign the document please click on the link below where you will be taken to our secure website.{contract url}Kind regards,Signablehttps://www.signable.co.ukWe would like to remind you that signing a document online via Signable is legally binding via the UK Electronic Communications Act 2000.",
+          "branding_email_updated": "2015-04-22T14:30:26+0000"
+        },
+        {
+          "branding_email_type": "email-reminder-password",
+          "branding_email_subject": "{company name} has sent you a document to sign",
+          "branding_email_content": "<table style=\"width:600px\"><tbody><tr><td><table><tbody><tr><td><a href=\"https://www.signable.co.uk\"><img alt=\"Signable\" src=\"https://s3-eu-west-1.amazonaws.com/assets.signable.co.uk/company-logo/20500.jpg?1395222166\" style=\"height:92px; width:300px\" /></a></td></tr><tr><td><h1>{client name}, You Have Been Sent A Document To Sign</h1><p>{company name} has sent you the document {contract title} to sign online. We have attached a copy of the document in this email, so please take the time to open and read the document carefully before proceeding. {company name} has also requested this document be password protected to help increase the level of security.</p><table style=\"width:100%\"><tbody><tr><td><p><a href=\"{contract url}\">Please click here to sign the {contract title}</a></p><p>Password: {contract password}</p></td></tr></tbody></table><p>Kind regards, <a href=\"https://www.signable.co.uk\">Signable</a></p><p>Important: Signing a document online via <a href=\"https://www.signable.co.uk\">Signable</a> is legally binding.</p></td></tr></tbody></table></td></tr></tbody></table><p><img alt=\"\" src=\"{acknowledge url}\" /></p>",
+          "branding_email_content_plain": "{client name}, You have been sent a document to sign{company name} has sent you the document {contract title} to sign online. We have attached a copy to this email. To sign the document please click on the link below where you will be taken to our secure website.{contract url}{company name} has also requested that this document be password protected to help increase the level of security. Only you have access to this password which you must enter before you are allowed access to the document. You can find the password below:Password: {contract password}            Kind regards,Signablehttps://www.signable.co.ukWe would like to remind you that signing a document online via Signable is legally binding via the UK Electronic Communications Act 2000.",
+          "branding_email_updated": "2014-03-19T09:43:30+0000"
+        },
+        {
+          "branding_email_type": "email-send",
+          "branding_email_subject": "{company name} has sent you a document to sign",
+          "branding_email_content": "<meta content=\"text/html; charset=UTF-8\" http-equiv=\"Content-Type\" /><title></title><table style=\"width:600px\"><tbody><tr><td><table><tbody><tr><td><a href=\"https://www.signable.co.uk\"><img alt=\"Signable\" src=\"https://s3-eu-west-1.amazonaws.com/assets.signable.co.uk/company-logo/20500.jpg?1395222166\" /></a></td></tr><tr><td><h1>{client name}, You Have Been Sent A Document To Sign</h1><p>{company name} has sent you the document {contract title} to sign online. {user name}</p><p>We have attached a copy of the document in this email, so please take the time to open and read the document carefully before signing. Once ready, please click on the link below which will take you to our secure document signing page:</p><p>{contract intro}</p><table style=\"width:100%\"><tbody><tr><td><p><a href=\"{contract url}\">Please click here to sign the {contract title}</a></p></td></tr></tbody></table><p>Kind regards, <a href=\"https://www.signable.co.uk\">Signable</a></p><p>Important: Signing a document online via <a href=\"https://www.signable.co.uk\">Signable</a> is legally binding.</p></td></tr></tbody></table></td></tr></tbody></table><p><img alt=\"\" src=\"{acknowledge url}\" /></p>",
+          "branding_email_content_plain": "{client name}You have been sent a document to sign{company name} has sent you the document {contract title} to sign online. We have attached a copy to this email. To sign the document please click on the link below where you will be taken to our secure website.{contract url}Kind regards,Signablehttps://www.signable.co.ukWe would like to remind you that signing a document online via Signable is legally binding via the UK Electronic Communications Act 2000.",
+          "branding_email_updated": "2015-04-22T14:26:17+0000"
+        },
+        {
+          "branding_email_type": "email-signed",
+          "branding_email_subject": "Document signed confirmation",
+          "branding_email_content": "<table style=\"width:600px\"><tbody><tr><td><table><tbody><tr><td><a href=\"https://www.signable.co.uk\"><img alt=\"Signable\" src=\"https://s3-eu-west-1.amazonaws.com/assets.signable.co.uk/company-logo/20500.jpg?1395222166\" style=\"height:92px; width:300px\" /></a></td></tr><tr><td><h1>You Have Successfully Signed {contract title}</h1><p>We have attached a copy of the document for your records in this email. A digital copy of your document will always be available online via the address below:</p><table style=\"width:600px\"><tbody><tr><td><p><a href=\"{contract url}\">Click here to download a copy of your document</a></p></td></tr></tbody></table><p>Kind regards, <a href=\"https://www.signable.co.uk\">Signable</a></p><p>Postal address: 32A Downend Road, Downend, Bristol, BS16 5UJ</p></td></tr></tbody></table></td></tr></tbody></table>",
+          "branding_email_content_plain": "You have successfully signed {contract title}We have attached a copy of the document for your records in this email. A digital copy of your document will always be available online via the address below:{contract url}Kind regards,Signablehttps://www.signable.co.uk",
+          "branding_email_updated": "2015-05-28T12:30:39+0000"
+        },
+        {
+          "branding_email_type": "email-widget-verify",
+          "branding_email_subject": "Verify your signed document with {company name}",
+          "branding_email_content": "<table style=\"width:600px\"><tbody><tr><td><table><tbody><tr><td><a href=\"https://www.signable.co.uk\"><img alt=\"Signable\" src=\"https://s3-eu-west-1.amazonaws.com/assets.signable.co.uk/company-logo/20500.jpg?1395222166\" style=\"height:92px; width:300px\" /></a></td></tr><tr><td><h1>{client name}, You Need To Verify Your Signed Document</h1><p>You have recently completed and signed the document {contract title}. Before the document is completed and legally binding you need to click the link below to verify your email address. Once ready, please click on the link below:</p><table style=\"width:100%\"><tbody><tr><td><p><a href=\"{widget verify url}\">Please click here to verify your signature for {contract title}</a></p></td></tr></tbody></table><p>Important: Signing a document online via <a href=\"https://www.signable.co.uk\">Signable</a> is legally binding.</p></td></tr></tbody></table></td></tr></tbody></table>",
+          "branding_email_content_plain": "{client name}, You Need To Verify Your Signed Document You have recently completed and signed the document {contract title}. Before the document is completed and legally binding you need to click the link below to verify your email address. Once ready, please click on the link below:{widget verify url}Important: Signing a document online via Signable is legally binding.",
+          "branding_email_updated": "2014-03-19T09:43:55+0000"
+        }
+      ]
+    }
+  },
+  "update_branding_options": {
+    "success": {
+      "http": 200,
+      "message": "Branding options have been updated.",
+      "branding_logo": "http://assets.signable.co.uk/company-logo/1234.jpg",
+      "branding_colour": "#FF0000"
+    }
+  },
+  "update_branding_emails": {
+    "success": {
+      "http": 200,
+      "message": "email-signed email has been updated.",
+      "branding_email_type": "email-signed",
+      "branding_email_subject": "Test Subject",
+      "branding_email_content": "<table style=\"width:600px\"><tbody><tr><td><table><tbody><tr><td><a href=\"https://www.signable.co.uk\"><img alt=\"Signable\" src=\"https://s3-eu-west-1.amazonaws.com/assets.signable.co.uk/company-logo/20500.jpg?1395222166\" style=\"height:92px; width:300px\" /></a></td></tr><tr><td><h1>You Have Successfully Signed {contract title}</h1><p>We have attached a copy of the document for your records in this email. A digital copy of your document will always be available online via the address below:</p><table style=\"width:600px\"><tbody><tr><td><p><a href=\"{contract url}\">Click here to download a copy of your document</a></p></td></tr></tbody></table><p>Kind regards, <a href=\"https://www.signable.co.uk\">Signable</a></p><p>Postal address: 32A Downend Road, Downend, Bristol, BS16 5UJ</p></td></tr></tbody></table></td></tr></tbody></table>",
+      "branding_email_content_plain": "You have successfully signed {contract title}\\\\We have attached a copy of the document for your records in this email. A digital copy of your document will always be available online via the address below:\\\\{contract url}\\\\Kind regards,\\Signable\\\\https://www.signable.co.uk",
+      "branding_email_updated": "2015-05-28T13:36:34+0000"
+    }
+  }
+}

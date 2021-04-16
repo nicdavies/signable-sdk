@@ -1,0 +1,96 @@
+{
+  "create": {
+    "success": {
+      "http": 200,
+      "message": "The A Team has been added to your teams with own documents only, apps permissions.",
+      "href": "https://api.signable.co.uk/v1/teams/1000",
+      "team_id": "1000",
+      "team_name": "The A Team",
+      "team_permission_own": true,
+      "team_permission_users": false,
+      "team_permission_branding": false,
+      "team_permission_apps": true,
+      "team_permission_settings": false,
+      "team_permission_company": false,
+      "team_created": "2015-01-21T12:03:00+0000"
+    }
+  },
+  "read": {
+    "success": {
+      "http": 200,
+      "team_id": 1000,
+      "team_name": "The A Team",
+      "team_users": "3",
+      "team_permission_own": false,
+      "team_permission_users": true,
+      "team_permission_branding": true,
+      "team_permission_apps": true,
+      "team_permission_settings": true,
+      "team_permission_company": true,
+      "team_updated": null,
+      "team_created": "2014-11-12T15:21:50+0000"
+    }
+  },
+  "list": {
+    "success": {
+      "http": 200,
+      "offset": 0,
+      "limit": 3,
+      "total_teams": "2",
+      "teams": [
+        {
+          "team_id": "129",
+          "team_name": "General",
+          "team_users": "3",
+          "team_permission_own": false,
+          "team_permission_users": true,
+          "team_permission_branding": true,
+          "team_permission_apps": true,
+          "team_permission_settings": true,
+          "team_permission_company": true,
+          "team_updated": null,
+          "team_created": "2014-11-12T15:21:50+0000"
+        },
+        {
+          "team_id": "1000",
+          "team_name": "The A Team",
+          "team_users": "5",
+          "team_permission_own": false,
+          "team_permission_users": true,
+          "team_permission_branding": true,
+          "team_permission_apps": true,
+          "team_permission_settings": true,
+          "team_permission_company": true,
+          "team_updated": null,
+          "team_created": "2014-11-12T15:21:50+0000"
+        }
+      ]
+    }
+  },
+  "update": {
+    "success": {
+      "http": 200,
+      "message": "The B Team has been updated in your teams",
+      "href": "https://api.signable.co.uk/v1/teams/1000",
+      "team_id": 1000,
+      "team_name": "The B Team",
+      "team_users": "2",
+      "team_permission_own": false,
+      "team_permission_users": false,
+      "team_permission_branding": false,
+      "team_permission_apps": false,
+      "team_permission_settings": false,
+      "team_permission_company": false,
+      "team_updated": "2015-01-21T11:57:29+0000"
+    }
+  },
+  "delete": {
+    "success": {
+      "http": 200,
+      "message": "Test Add 2 has been removed from your teams.",
+      "team_id": 1000,
+      "team_name": "The B Team",
+      "team_removed": "2015-01-21T11:59:03+0000"
+    }
+  }
+}

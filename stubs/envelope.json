@@ -1,0 +1,178 @@
+{
+  "send_envelope_with_template": {
+    "success": {
+      "http": 202,
+      "message": "Your envelope with title My envelope will be processed and sent out.",
+      "href": "https://api.signable.co.uk/v1/envelopes/d41d8cd98f00b204e9800998ecf8427e",
+      "envelope_title": "My envelope",
+      "envelope_fingerprint": "d41d8cd98f00b204e9800998ecf8427e",
+      "envelope_signing_embed": "<iframe src='https://app.signable.co.uk/contract/sign/1234/5678/90123/a447d6e27037fddf65a7d3f5e2c41e6c/d41d8cd98f00b204e9800998ecf8427e' width='100%' height='95%' frameborder='0' style='border: 0; overflow: hidden'></iframe>"
+      "envelope_queued": "2013-10-25T13:53:49+0000"
+    }
+  },
+  "send_envelope_without_template": {
+    "success": {
+      "http": 202,
+      "message": "Your envelope with title Test Envelope Title will be processed and sent out.",
+      "href": "https://api.signable.co.uk/v1/envelopes/d41d8cd98f00b204e9800998ecf8427e",
+      "envelope_title": "My envelope",
+      "envelope_fingerprint": "d41d8cd98f00b204e9800998ecf8427e",
+      "envelope_queued": "2013-10-25T13:53:49+0000"
+    }
+  },
+  "read": {
+    "success": {
+      "http": 200,
+      "envelope_fingerprint": "d41d8cd98f00b204e9800998ecf8427e",
+      "envelope_title": "Test Envelope Title",
+      "envelope_status": "sent",
+      "envelope_redirect_url": "http://www.google.com",
+      "envelope_created": "2013-10-17T13:17:00+0000",
+      "envelope_sent": "2013-10-17T13:17:00+0000",
+      "envelope_documents": [
+        {
+          "document_fingerprint": "d41d8cd98f00b204e9800998ecf8427e",
+          "document_title": "Test Envelope Title",
+          "document_page_total": "1",
+          "document_pdf_url": "http://docs.signable.co.uk/original/d41d8cd98f00b204e9800998ecf8427e.pdf",
+          "document_thumbnails": [
+            "http://docs.signable.co.uk/small/d41d8cd98f00b204e9800998ecf8427e-0.jpg"
+          ],
+          "document_pages": [
+            "http://docs.signable.co.uk/large/d41d8cd98f00b204e9800998ecf8427e-0.jpg"
+          ],
+          "document_fields": [
+            {
+              "field_id": "987654321",
+              "field_title": "Date Here",
+              "field_type": "date",
+              "field_value": "01/01/2015",
+              "party_id": "1234",
+              "field_merge": null
+            }
+          ]
+        }
+      ],
+      "envelope_parties": [
+        {
+          "party_id": "1234",
+          "party_title": "John Smith",
+          "party_status": "signed",
+          "contact_id": "9876",
+          "contact_email": "john@smith.com"
+        },
+        {
+          "party_id": "5678",
+          "party_title": "Jane Smith",
+          "party_status": "in progress",
+          "contact_id": "54321",
+          "contact_email": "jane@smith.com"
+        }
+      ],
+      "envelope_signed_pdf": "https://app.signable.co.uk/contract/down/1000/1000/1000/d41d8cd98f00b204e9800998ecf8427e/d41d8cd98f00b204e9800998ecf8427e",
+      "envelope_history": [
+        {
+          "history_detail": "Document generated with fingerprint d41d8cd98f00b204e9800998ecf8427e.",
+          "history_ip": "123.456.789.012",
+          "history_user_agent": "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/525.19 (KHTML, like Gecko) Chrome/1.0.154.53 Safari/525.19",
+          "history_date": "2016-06-29T16:31:49+0000"
+        },
+        {
+          "history_detail": "Envelope generated.",
+          "history_ip": "123.456.789.012",
+          "history_user_agent": "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/525.19 (KHTML, like Gecko) Chrome/1.0.154.53 Safari/525.19",
+          "history_date": "2016-06-29T16:31:46+0000"
+        },
+        {
+          "history_detail": "John Smith has been assigned to this envelope.",
+          "history_ip": "123.456.789.012",
+          "history_user_agent": "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/525.19 (KHTML, like Gecko) Chrome/1.0.154.53 Safari/525.19",
+          "history_date": "2016-06-29T16:31:46+0000"
+        },
+        {
+          "history_detail": "Sent the envelope to John Smith (john@smith.com) for signing.",
+          "history_ip": "123.456.789.012",
+          "history_user_agent": "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/525.19 (KHTML, like Gecko) Chrome/1.0.154.53 Safari/525.19",
+          "history_date": "2016-06-29T16:31:46+0000"
+        },
+        {
+          "history_detail": "Document emailed to party.",
+          "history_ip": "123.456.789.012",
+          "history_user_agent": "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/525.19 (KHTML, like Gecko) Chrome/1.0.154.53 Safari/525.19",
+          "history_date": "2016-06-29T16:31:56+0000"
+        }
+      ],
+      "envelope_meta": {
+        "my_value": "1234"
+      }
+    }
+  },
+  "list": {
+    "success": {
+      "http": 200,
+      "offset": 0,
+      "limit": 3,
+      "total_envelopes": "10",
+      "next": "http://api.signable.co.uk/v1/envelopes?offset=3&limit=3",
+      "href": "http://api.signable.co.uk/v1/envelopes/d41d8cd98f00b204e9800998ecf8427e",
+      "envelopes": [
+        {
+          "envelope_fingerprint": "d41d8cd98f00b204e9800998ecf8427e",
+          "envelope_title": "Test envelope",
+          "envelope_status": "processing",
+          "envelope_redirect_url": "http://www.google.com",
+          "envelope_created": "2013-08-16T13:49:28+0000",
+          "envelope_sent": null
+        },
+        {
+          "envelope_fingerprint": "d41d8cd98f00b204e9800998ecf8427e",
+          "envelope_title": "Test envelope",
+          "envelope_status": "processing",
+          "envelope_redirect_url": "http://www.google.com",
+          "envelope_created": "2013-08-16T13:49:28+0000",
+          "envelope_sent": null
+        },
+        {
+          "envelope_fingerprint": "d41d8cd98f00b204e9800998ecf8427e",
+          "envelope_title": "Test envelope",
+          "envelope_status": "processing",
+          "envelope_redirect_url": "http://www.google.com",
+          "envelope_created": "2013-08-16T13:49:28+0000",
+          "envelope_sent": null
+        }
+      ]
+    }
+  },
+  "send_reminder": {
+    "success": {
+      "http": 200,
+      "message": "The next signing party for this envelope has been reminded.",
+      "envelope_fingerprint": "d41d8cd98f00b204e9800998ecf8427e",
+      "envelope_title": "Envelope Title"
+    }
+  },
+  "cancel": {
+    "success": {
+      "http": 200,
+      "message": "The envelope has been cancelled",
+      "envelope_fingerprint": "d41d8cd98f00b204e9800998ecf8427e",
+      "envelope_title": "Envelope Title"
+    }
+  },
+  "expire": {
+    "success": {
+      "http": 200,
+      "message": "The envelope has been expired",
+      "envelope_fingerprint": "d41d8cd98f00b204e9800998ecf8427e",
+      "envelope_title": "Envelope Title"
+    }
+  },
+  "delete": {
+    "success": {
+      "http": 200,
+      "message": "The envelope has been deleted",
+      "envelope_fingerprint": "d41d8cd98f00b204e9800998ecf8427e",
+      "envelope_title": "Envelope Title"
+    }
+  }
+}

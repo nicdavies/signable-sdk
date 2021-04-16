@@ -1,0 +1,38 @@
+{
+  "list": {
+    "success": {
+      "http": 200,
+      "setting_signature_more_info": true,
+      "setting_signature_format_accepted": "typed,drawn,upload",
+      "setting_signature_format_default": false,
+      "setting_email_pdf_attach": true,
+      "setting_email_envelope_open": false,
+      "setting_email_main_email": false,
+      "setting_email_return_address_user": false,
+      "setting_signing_consumer_regulations_act": false,
+      "setting_signing_tooltips": true,
+      "setting_signing_questions": true,
+      "setting_pdf_audit_trail_hide": true
+    }
+  },
+  "update": {
+    "success": {
+      "http": 200,
+      "message": "Signable Demo settings have been updated.",
+      "href": "https://api.signable.co.uk/v1/companies/1234",
+      "company_id": "1234",
+      "company_name": "Signable Demo",
+      "setting_signature_more_info": true,
+      "setting_signature_format_accepted": "typed,drawn,upload",
+      "setting_signature_format_default": "drawn",
+      "setting_email_pdf_attach": true,
+      "setting_email_envelope_open": false,
+      "setting_email_main_email": false,
+      "setting_email_return_address_user": false,
+      "setting_signing_consumer_regulations_act": false,
+      "setting_signing_tooltips": true,
+      "setting_signing_questions": true,
+      "setting_pdf_audit_trail_hide": false
+    }
+  }
+}

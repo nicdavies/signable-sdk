@@ -1,0 +1,83 @@
+{
+  "create": {
+    "success": {
+      "http": 200,
+      "message": "John Smith has been added to your user list.",
+      "href": "https://api.signable.co.uk/v1/users/1000",
+      "user_id": 1000,
+      "team_id": 1234,
+      "user_name": "John Smith",
+      "user_email": "john@smith.com",
+      "user_added": "2013-10-25T12:07:52+0000"
+    }
+  },
+  "read": {
+    "success": {
+      "http": 200,
+      "user_id": 1000,
+      "team_id": 1234,
+      "user_name": "John Smith",
+      "user_email": "john@smith.com",
+      "user_added": "2013-10-25T12:07:52+0000",
+      "user_last_updated": null
+    }
+  },
+  "list": {
+    "success": {
+      "http": 200,
+      "offset": 0,
+      "limit": 3,
+      "total_users": "10",
+      "next": "https://api.signable.co.uk/v1/users?offset=3&limit=7",
+      "users": [
+        {
+          "user_id": 1000,
+          "team_id": 1234,
+          "user_name": "John Smith",
+          "user_email": "john@smith.com",
+          "user_added": "2010-01-07T10:24:59+0000",
+          "user_last_updated": "2013-07-26T19:39:12+0000"
+        },
+        {
+          "user_id": 1001,
+          "team_id": 1234,
+          "user_name": "Jane Smith",
+          "user_email": "jane@smith.com",
+          "user_added": "2010-01-07T10:24:59+0000",
+          "user_last_updated": "2013-07-26T19:39:12+0000"
+        },
+        {
+          "user_id": 1002,
+          "team_id": 1235,
+          "user_name": "Joe Smith",
+          "user_email": "joe@smith.com",
+          "user_added": "2010-01-07T10:24:59+0000",
+          "user_last_updated": "2013-07-26T19:39:12+0000"
+        }
+      ]
+    }
+  },
+  "update": {
+    "success": {
+      "http": 200,
+      "message": "Jim Smith has been updated in your user list.",
+      "href": "https://api.signable.co.uk/v1/users/1000",
+      "user_id": 1000,
+      "team_id": 1234,
+      "user_name": "Jim Smith",
+      "user_email": "jim@smith.com",
+      "user_password_changed": false,
+      "user_updated": "2013-10-25T12:17:37+0000"
+    }
+  },
+  "delete": {
+    "success": {
+      "http": 200,
+      "message": "Jim Smith has been removed from your user list.",
+      "user_id": 1000,
+      "team_id": 1234,
+      "user_email": "jim@smith.com",
+      "user_name": "Jim Smith"
+    }
+  }
+}
