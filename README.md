@@ -42,5 +42,7 @@ Flags: `--without-webhooks`
 ## Dreams
 - [ ] Parameterised JSON response stubs, that parse and replace
       with the user's input data.
-- [ ] Config option to set the webserver URL
+- [ ] Config option to set the webserver URL.
+- [ ] Parameterize timestamps in JSON response stubs.
+- [ ] Parameterize `href` urls in JSON response stubs (use the configured webserver url & port).
   
