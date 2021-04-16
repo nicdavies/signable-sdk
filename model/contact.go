@@ -5,13 +5,15 @@ import (
 	"time"
 )
 
+var Contacts []Contact
+
 type Contact struct {
 	Id                   int    `json:"contact_id"`
 	Name                 string `json:"contact_name" faker:"name"`
 	Email                string `json:"contact_email" faker:"email"`
 	OutstandingDocuments uint   `json:"contact_outstanding_documents" faker:"oneof: 0, 1, 2, 3, 4"`
 	Created              string `json:"contact_created" faker:"timestamp"`
-	//Apps                 App    `json:"contact_apps" faker:"-"`
+	Apps                 App    `json:"contact_apps" faker:"-"`
 }
 
 type App struct {
@@ -63,9 +65,19 @@ type ContactEnvelopeListResponse struct {
 }
 
 // InitContact sets up the data fixtures for contacts
-func InitContact() error {
-	contact := Contact{}
-	err := faker.FakeData(&contact)
+func InitContact() ([]Contact, error) {
+	// create 20 contacts
+	for i := 0; i < 20; i++ {
+		c := Contact{}
 
-	return err
+		err := faker.FakeData(&c)
+		if err != nil {
+			return Contacts, err
+		}
+
+		// add the newly created contact to the slice
+		Contacts = append(Contacts, c)
+	}
+
+	return Contacts, nil
 }

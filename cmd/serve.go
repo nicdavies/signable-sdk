@@ -31,6 +31,7 @@ var serveCmd = &cobra.Command{
 }
 
 func buildFixtures() {
+	// API Key fixtures
 	fmt.Println("Generating API Keys...")
 
 	keys, err := model.InitKey()
@@ -38,8 +39,26 @@ func buildFixtures() {
 		panic("failed creating API keys")
 	}
 
-	// output the keys
 	fmt.Printf("⇨ Success Key: %v \n", keys[0].Token)
 	fmt.Printf("⇨ Error Key: %v \n", keys[1].Token)
 	fmt.Println("\n")
+
+	// contacts fixtures
+	fmt.Println("Generating Contacts...")
+
+	contacts, err := model.InitContact()
+	if err != nil {
+		panic("failed creating contacts")
+	}
+
+	fmt.Printf("⇨ Contacts: %+v", contacts)
+	fmt.Println("\n")
+
+	// TODO branding fixtures
+	// TODO: envelope fixtures
+	// TODO: settings fixtures
+	// TODO: team fixtures
+	// TODO: template fixtures
+	// TODO: user fixtures
+	// TODO: webhook fixtures
 }
