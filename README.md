@@ -24,6 +24,7 @@ Flags: `--without-webhooks`
 
 ## TODO
 - [ ] Build `serve` command (webserver component)
+- [ ] Command to generate API Keys (valid & invalid), or generate one on startup
 - [ ] Build authentication handler (Bearer tokens)
 - [ ] Build JSON response stubs
 - [ ] Build `config` command to handle custom config (json format), and allow user to specify path to config file
