@@ -19,6 +19,9 @@ func Init() {
 func main() {
 	e := echo.New()
 
+	// echo config
+	e.HideBanner = true
+
 	// TODO: add /v1/ prefix to all routes
 
 	// contacts
