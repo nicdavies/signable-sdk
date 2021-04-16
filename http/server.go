@@ -1,7 +1,12 @@
 package http
 
 import (
+	"context"
 	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
+	"net/http"
+	"os"
+	"os/signal"
 	"signable-sdk/http/branding"
 	"signable-sdk/http/contact"
 	"signable-sdk/http/envelope"
@@ -10,6 +15,7 @@ import (
 	"signable-sdk/http/template"
 	"signable-sdk/http/user"
 	"signable-sdk/http/webhook"
+	"time"
 )
 
 func Init() {
@@ -22,62 +28,85 @@ func main() {
 	// echo config
 	e.HideBanner = true
 
-	// TODO: add /v1/ prefix to all routes
+	// add middleware
+	e.Use(middleware.Logger())
+	e.Use(middleware.Recover())
+	e.Use(SDKHeaderMiddleware)
+	e.Use(BearerAuthMiddleware)
+
+	// prefix all routes with /v1
+	g := e.Group("/v1")
 
 	// contacts
-	e.GET("/contacts", contact.List)
-	e.POST("/contacts", contact.Create)
-	e.GET("/contacts/:id", contact.Read)
-	e.PUT("/contacts/:id", contact.Update)
-	e.DELETE("/contacts/:id", contact.Delete)
-	e.GET("/contacts/:id/envelopes", contact.EnvelopeList)
+	g.GET("/contacts", contact.List)
+	g.POST("/contacts", contact.Create)
+	g.GET("/contacts/:id", contact.Read)
+	g.PUT("/contacts/:id", contact.Update)
+	g.DELETE("/contacts/:id", contact.Delete)
+	g.GET("/contacts/:id/envelopes", contact.EnvelopeList)
 
 	// envelope
-	e.GET("/envelopes", envelope.List)
-	e.POST("/envelopes", envelope.Create)
-	e.GET("/envelopes/:id", envelope.Read)
-	e.PUT("/envelopes/:id/remind", envelope.Reminder)
-	e.PUT("/envelopes/:id/cancel", envelope.Cancel)
-	e.PUT("/envelopes/:id/expire", envelope.Expire)
-	e.DELETE("/envelopes/:id", envelope.Delete)
+	g.GET("/envelopes", envelope.List)
+	g.POST("/envelopes", envelope.Create)
+	g.GET("/envelopes/:id", envelope.Read)
+	g.PUT("/envelopes/:id/remind", envelope.Reminder)
+	g.PUT("/envelopes/:id/cancel", envelope.Cancel)
+	g.PUT("/envelopes/:id/expire", envelope.Expire)
+	g.DELETE("/envelopes/:id", envelope.Delete)
 
 	// template
-	e.GET("/templates", template.List)
-	e.GET("/templates/:id", template.Read)
-	e.DELETE("/templates/:id", template.Delete)
+	g.GET("/templates", template.List)
+	g.GET("/templates/:id", template.Read)
+	g.DELETE("/templates/:id", template.Delete)
 
 	// user
-	e.GET("/users", user.List)
-	e.POST("/users", user.Create)
-	e.GET("/users/:id", user.Read)
-	e.PUT("/users/:id", user.Update)
-	e.DELETE("/users/:id", user.Delete)
+	g.GET("/users", user.List)
+	g.POST("/users", user.Create)
+	g.GET("/users/:id", user.Read)
+	g.PUT("/users/:id", user.Update)
+	g.DELETE("/users/:id", user.Delete)
 
 	// webhook
-	e.GET("/webhooks", webhook.List)
-	e.POST("/webhooks", webhook.Create)
-	e.GET("/webhooks/:id", webhook.Read)
-	e.PUT("/webhooks/:id", webhook.Update)
-	e.DELETE("/webhooks/:id", webhook.Delete)
+	g.GET("/webhooks", webhook.List)
+	g.POST("/webhooks", webhook.Create)
+	g.GET("/webhooks/:id", webhook.Read)
+	g.PUT("/webhooks/:id", webhook.Update)
+	g.DELETE("/webhooks/:id", webhook.Delete)
 
 	// team
-	e.GET("/teams", team.List)
-	e.POST("/teams", team.Create)
-	e.GET("/teams/:id", team.Read)
-	e.PUT("/teams/:id", team.Update)
-	e.DELETE("/teams/:id", team.Delete)
+	g.GET("/teams", team.List)
+	g.POST("/teams", team.Create)
+	g.GET("/teams/:id", team.Read)
+	g.PUT("/teams/:id", team.Update)
+	g.DELETE("/teams/:id", team.Delete)
 
 	// branding
-	e.GET("/branding", branding.List)
-	e.GET("/branding/emails", branding.ListEmails)
-	e.PUT("/branding", branding.Update)
-	e.PUT("/branding/emails/email-signed", branding.UpdateEmails)
+	g.GET("/branding", branding.List)
+	g.GET("/branding/emails", branding.ListEmails)
+	g.PUT("/branding", branding.Update)
+	g.PUT("/branding/emails/email-signed", branding.UpdateEmails)
 
 	// settings
-	e.GET("/settings", settings.List)
-	e.PUT("/settings", settings.Update)
+	g.GET("/settings", settings.List)
+	g.PUT("/settings", settings.Update)
 
 	// TODO: partner
 
-	e.Logger.Fatal(e.Start(":8080"))
+	// start http server
+	go func() {
+		if err := e.Start(":8080"); err != nil && err != http.ErrServerClosed {
+			e.Logger.Fatal("Shutting down server...")
+		}
+	}()
+
+	// Wait for interrupt signal to gracefully shutdown the server with a timeout of 10 seconds.
+	// Use a buffered channel to avoid missing signals as recommended for signal.Notify
+	quit := make(chan os.Signal, 1)
+	signal.Notify(quit, os.Interrupt)
+	<-quit
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancel()
+	if err := e.Shutdown(ctx); err != nil {
+		e.Logger.Fatal(err)
+	}
 }
