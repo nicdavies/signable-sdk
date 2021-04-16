@@ -1,0 +1,22 @@
+{
+  "create": {
+    "success": {
+      "http": 200,
+      "message": "John Smith has been added to your contact list.",
+      "href": "https://api.signable.co.uk/v1/contacts/1000",
+      "contact_id": "1000",
+      "contact_name": "John Smith",
+      "contact_email": "john@smith.com",
+      "contact_created": "2013-10-24T15:05:05+0000"
+    }
+  },
+
+  "read": {
+  },
+  "list": {
+  },
+  "update": {
+  },
+  "delete": {
+  }
+}
