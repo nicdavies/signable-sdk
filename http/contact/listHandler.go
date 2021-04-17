@@ -3,8 +3,11 @@ package contact
 import (
 	"github.com/labstack/echo/v4"
 	"net/http"
+	"signable-sdk/model"
 )
 
 func List(ctx echo.Context) error {
-	return ctx.String(http.StatusOK, "GET /v1/contacts")
+	contact := model.Contacts
+
+	return ctx.JSON(http.StatusOK, contact)
 }
