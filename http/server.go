@@ -18,24 +18,50 @@ import (
 	"time"
 )
 
+var (
+	HttpServer  *echo.Echo
+	LogRequests = false
+)
+
 func Init() {
-	main()
+	HttpServer = echo.New()
+
+	HttpServer.HideBanner = true
+
+	addMiddleware()
+	addRoutes()
+
+	go func() {
+		if err := HttpServer.Start(":8080"); err != nil && err != http.ErrServerClosed {
+			HttpServer.Logger.Fatal("shutting down http server")
+		}
+	}()
+
+	// Wait for interrupt signal to gracefully shutdown the server with a timeout of 10 seconds.
+	// Use a buffered channel to avoid missing signals as recommended for signal.Notify
+	quit := make(chan os.Signal, 1)
+	signal.Notify(quit, os.Interrupt)
+	<-quit
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancel()
+	if err := HttpServer.Shutdown(ctx); err != nil {
+		HttpServer.Logger.Fatal(err)
+	}
 }
 
-func main() {
-	e := echo.New()
+func addMiddleware() {
+	HttpServer.Use(middleware.Recover())
+	HttpServer.Use(SDKHeaderMiddleware)
+	HttpServer.Use(BearerAuthMiddleware)
 
-	// echo config
-	e.HideBanner = true
+	if LogRequests == true {
+		HttpServer.Use(middleware.Logger())
+	}
+}
 
-	// add middleware
-	e.Use(middleware.Logger())
-	e.Use(middleware.Recover())
-	e.Use(SDKHeaderMiddleware)
-	e.Use(BearerAuthMiddleware)
-
+func addRoutes() {
 	// prefix all routes with /v1
-	g := e.Group("/v1")
+	g := HttpServer.Group("/v1")
 
 	// contacts
 	g.GET("/contacts", contact.List)
@@ -90,23 +116,5 @@ func main() {
 	g.GET("/settings", settings.List)
 	g.PUT("/settings", settings.Update)
 
-	// TODO: partner
-
-	// start http server
-	go func() {
-		if err := e.Start(":8080"); err != nil && err != http.ErrServerClosed {
-			e.Logger.Fatal("Shutting down server...")
-		}
-	}()
-
-	// Wait for interrupt signal to gracefully shutdown the server with a timeout of 10 seconds.
-	// Use a buffered channel to avoid missing signals as recommended for signal.Notify
-	quit := make(chan os.Signal, 1)
-	signal.Notify(quit, os.Interrupt)
-	<-quit
-	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
-	defer cancel()
-	if err := e.Shutdown(ctx); err != nil {
-		e.Logger.Fatal(err)
-	}
+	// TODO: partner routes
 }

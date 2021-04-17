@@ -8,6 +8,5 @@ import (
 
 func List(ctx echo.Context) error {
 	contact := model.Contacts
-
 	return ctx.JSON(http.StatusOK, contact)
 }
